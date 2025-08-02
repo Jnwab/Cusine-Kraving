@@ -8,9 +8,9 @@
     tools:context=".MainActivity">
 
     <!-- [ ] TODO: Change title background to something better -->
-    <!-- [ ] TODO: Change text font and color -->
-    <!-- [ ] TODO: Change color scheme -->
-    <!-- [ ] TODO: Customize Buttons -->
+    <!-- [X] TODO: Change text font and color -->
+    <!-- [X] TODO: Change color scheme -->
+    <!-- [X] TODO: Customize Buttons -->
 
     <!-- HEADER  -->
     <ImageView
@@ -26,20 +26,20 @@
     <!-- App Title -->
     <TextView
         android:id="@+id/text_app_title"
-        android:text="Cuisine\nCravings"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+        android:fontFamily="@font/sen_bold"
+
+        android:text="Cuisine\nCravings"
+        android:textAlignment="center"
+        android:textColor="@color/white"
 
         android:textSize="32sp"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:textAlignment="center"
-
-        app:layout_constraintTop_toTopOf="@id/bg_app_title"
         app:layout_constraintBottom_toBottomOf="@id/bg_app_title"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/bg_app_title" />
 
     <!-- Slogan text? -->
     <TextView
@@ -48,7 +48,8 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="8dp"
         android:layout_marginHorizontal="8dp"
 
         android:textStyle="italic"
@@ -65,7 +66,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_cuisine_input"
 
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:padding="8dp"
         android:layout_marginHorizontal="8dp"
 
@@ -84,16 +85,16 @@
 
             android:text="@string/cuisine"
             android:textSize="24sp"
-            android:textStyle="bold"
 
-            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner_cuisine_option"
 
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="32dp"
             android:layout_marginStart="8dp"
 
@@ -107,7 +108,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_category_input"
 
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:padding="8dp"
         android:layout_marginHorizontal="8dp"
 
@@ -135,7 +136,7 @@
         <Spinner
             android:id="@+id/spinner_category_option"
 
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="32dp"
             android:layout_marginStart="8dp"
 
@@ -148,11 +149,13 @@
     <!-- Button: Find Cuisine -->
     <Button
         android:id="@+id/button_get_cuisine"
-        android:text="Find Cuisine!"
+        app:icon="@drawable/icon_search"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+
+        style="@style/Widget.Material3.Button.IconButton.Filled"
 
         app:layout_constraintTop_toBottomOf="@id/layout_category_input"
         app:layout_constraintEnd_toEndOf="@id/layout_category_input" />
@@ -162,7 +165,7 @@
     <!-- BackGround color behind Random Meal button -->
     <View
         android:id="@+id/bg_random_button"
-        android:background="#FACF8C"
+        android:background="@color/light_orange"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="8dp"
@@ -173,11 +176,16 @@
         />
 
     <!-- Button: RANDOM MEAL -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_random_meal"
+        android:text="Suprise Me!"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Give me three Random Dishes!"
+
+        android:padding="8dp"
+        android:textSize="16dp"
+        app:cornerRadius="4dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -186,8 +194,8 @@
         />
 
 
-
     <!-- Text: List of Meals: -->
+
     <TextView
         android:id="@+id/text_list_title"
         android:text="List of Dishes:"
@@ -196,10 +204,10 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
 
-        android:background="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:background="@color/raisin_black"
+        android:textSize="22sp"
+        android:fontFamily="@font/sen_bold"
+        android:textColor="@color/platinum"
 
         app:layout_constraintTop_toBottomOf="@id/bg_random_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +221,7 @@
         android:layout_height="0dp"
 
         android:padding="8dp"
-        android:background="@android:color/black"
+        android:background="@color/raisin_black"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
