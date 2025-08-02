@@ -71,7 +71,7 @@
 
         <!-- Button: MORE INFO -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_website"
+            android:id="@+id/button_more_info"
             android:text="More Info"
 
             card_view:icon="@drawable/icon_right_arrow"
