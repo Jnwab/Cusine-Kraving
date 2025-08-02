@@ -7,13 +7,218 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- [ ] TODO: Change title background to something better -->
+    <!-- [ ] TODO: Change text font and color -->
+    <!-- [ ] TODO: Change color scheme -->
+    <!-- [ ] TODO: Customize Buttons -->
+
+    <!-- HEADER  -->
+    <ImageView
+        android:id="@+id/bg_app_title"
+        app:srcCompat="@drawable/bg_view"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <!-- App Title -->
     <TextView
+        android:id="@+id/text_app_title"
+        android:text="Cuisine\nCravings"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+
+        android:textSize="32sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textAlignment="center"
+
+        app:layout_constraintTop_toTopOf="@id/bg_app_title"
+        app:layout_constraintBottom_toBottomOf="@id/bg_app_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Slogan text? -->
+    <TextView
+        android:id="@+id/text_slogan"
+        android:text="@string/slogan"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="8dp"
+
+        android:textStyle="italic"
+        android:textAlignment="viewEnd"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg_app_title" />
+
+
+
+    <!-- User Input: CUISINE and CATEGORY SPINNERS -->
+
+    <!-- CUISINE Input Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_cuisine_input"
+
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:layout_marginHorizontal="8dp"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/text_slogan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/text_cuisine"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/cuisine"
+            android:textSize="24sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner_cuisine_option"
+
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CATEGORY Input Layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_category_input"
+
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:layout_marginHorizontal="8dp"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/layout_cuisine_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/text_category"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/category"
+            android:textSize="24sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner_category_option"
+
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Button: Find Cuisine -->
+    <Button
+        android:id="@+id/button_get_cuisine"
+        android:text="Find Cuisine!"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintTop_toBottomOf="@id/layout_category_input"
+        app:layout_constraintEnd_toEndOf="@id/layout_category_input" />
+
+
+
+    <!-- BackGround color behind Random Meal button -->
+    <View
+        android:id="@+id/bg_random_button"
+        android:background="#FACF8C"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/button_get_cuisine"
+        app:layout_constraintBottom_toTopOf="@id/text_list_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <!-- Button: RANDOM MEAL -->
+    <Button
+        android:id="@+id/button_random_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Give me three Random Dishes!"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bg_random_button"
+        app:layout_constraintBottom_toBottomOf="@id/bg_random_button"
+        />
+
+
+
+    <!-- Text: List of Meals: -->
+    <TextView
+        android:id="@+id/text_list_title"
+        android:text="List of Dishes:"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+
+        android:background="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+
+        app:layout_constraintTop_toBottomOf="@id/bg_random_button"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <!-- RECYCLERVIEW to show results -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_of_dishes"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:padding="8dp"
+        android:background="@android:color/black"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/text_list_title"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

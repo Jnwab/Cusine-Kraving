@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Cuisine Cravings</string>
+
+    <string name="slogan">Welcome to FlavorTown ;)</string>
+    <string name="cuisine">Cuisine</string>
+    <string name="category">Category</string>
+    <string name="select_one">(Select One)</string>
+
 </resources>

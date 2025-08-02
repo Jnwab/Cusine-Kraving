@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- [ ] TODO: Change title background to something better -->
+<!-- [ ] TODO: Change text font and color -->
+<!-- [ ] TODO: Change color scheme -->
+<!-- [ ] TODO: Customize Buttons -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Header Background -->
+    <ImageView
+        android:id="@+id/app_title_bg"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/text_app_title"
+        android:text="Cuisine\nCravings"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="32sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textAlignment="center"
+
+        app:layout_constraintTop_toTopOf="@id/app_title_bg"
+        app:layout_constraintBottom_toBottomOf="@id/app_title_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ScrollView: In the case the instructions are extra long... -->
+    <ScrollView
+        android:id="@+id/scroll_view"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+
+        app:layout_constraintTop_toBottomOf="@id/app_title_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Dish Image -->
+            <ImageView
+                android:id="@+id/image_dish"
+                android:src="@drawable/temp_food"
+
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="centerCrop" />
+
+            <!-- Dish Title -->
+            <TextView
+                android:id="@+id/text_dish_title"
+                android:text="Dish Title"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:layout_marginTop="8dp" />
+
+            <!-- Instructions -->
+            <TextView
+                android:id="@+id/text_instructions"
+                android:text="Instructions:"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textStyle="bold|italic"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp" />
+
+            <!-- Instructions -->
+            <TextView
+                android:id="@+id/text_recipe_instructions"
+                android:text="Instructions go here..."
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
+
+            <!-- Button Row -->
+            <LinearLayout
+                android:orientation="horizontal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <!-- Button: Youtube Tutorial -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_youtube"
+                    android:text="YouTube Tutorial"
+                    app:icon="@drawable/icon_youtube"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Button: Official recipe website -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_website"
+                    android:text="Full Recipe"
+                    app:icon="@drawable/icon_recipe_book"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
