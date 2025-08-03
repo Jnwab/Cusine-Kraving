@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Spinner
@@ -16,6 +17,7 @@ import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 import org.json.JSONArray
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val getCuisine = findViewById<Button>(R.id.button_random_meal)
+        val getCuisine = findViewById<Button>(R.id.button_get_cuisine)
         getCuisine.setOnClickListener {
             Log.d("ButtonClick", "Button was clicked ✅")
             Toast.makeText(this, "Fetching meal...", Toast.LENGTH_SHORT).show()
@@ -65,6 +67,17 @@ class MainActivity : AppCompatActivity() {
                 fetchMeals(selectedRegion, selectedCategory)
             }
         }
+        // Performs a random call
+        val getRandom = findViewById<Button>(R.id.button_random_meal)
+        getRandom.setOnClickListener {
+            Log.d("RandomButtonClick", "Button was clicked ✅")
+            val intent = Intent(this, DishDetailsActivity::class.java)
+            intent.putExtra("RandomID", true.toString())
+            startActivity(intent)
+
+        }
+
+
 
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_list_of_dishes)
