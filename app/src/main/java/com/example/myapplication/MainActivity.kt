@@ -10,12 +10,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
+import org.json.JSONArray
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var mealAdapter: MealAdapter
+    private val mealList = mutableListOf<Meal>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,7 +43,15 @@ class MainActivity : AppCompatActivity() {
 
 
         // BUTTON to FETCH MEAL
-        val getCuisine = findViewById<Button>(R.id.button_get_cuisine)
+
+
+
+        val getCuisine = findViewById<Button>(R.id.button_random_meal)
+        getCuisine.setOnClickListener {
+            Log.d("ButtonClick", "Button was clicked ✅")
+            Toast.makeText(this, "Fetching meal...", Toast.LENGTH_SHORT).show()
+
+        }
         getCuisine.setOnClickListener {
             val regionIndex = spinnerRegion.selectedItemPosition
             val categoryIndex = spinnerCategory.selectedItemPosition
@@ -52,25 +65,78 @@ class MainActivity : AppCompatActivity() {
                 fetchMeals(selectedRegion, selectedCategory)
             }
         }
+
+
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_list_of_dishes)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        mealAdapter = MealAdapter(mealList)
+        recyclerView.adapter = mealAdapter
+
+
     }
 
-    fun fetchMeals(selectedRegion: String, selectedCategory: String){
-
+    fun fetchMeals(selectedRegion: String, selectedCategory: String) {
         val client = AsyncHttpClient()
 
-        client["https://www.themealdb.com/api/json/v1/1/random.php", object : JsonHttpResponseHandler() {
+        val regionUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedRegion}"
+        val categoryUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}"
+
+        var regionMeals: JSONArray? = null
+        var categoryMeals: JSONArray? = null
+
+        client[regionUrl, object : JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
-                Log.d("Meal", "response successful: $json")
+                regionMeals = json.jsonObject.getJSONArray("meals")
+                Log.d("REGION", "Got ${regionMeals!!.length()} meals from $selectedRegion")
+
+                // Now call category filter
+                client[categoryUrl, object : JsonHttpResponseHandler() {
+                    override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
+                        categoryMeals = json.jsonObject.getJSONArray("meals")
+                        Log.d("CATEGORY", "Got ${categoryMeals!!.length()} meals from $selectedCategory")
+
+                        val regionMealIds = mutableSetOf<String>()
+                        for (i in 0 until regionMeals!!.length()) {
+                            val id = regionMeals!!.getJSONObject(i).getString("idMeal")
+                            regionMealIds.add(id)
+                        }
+
+                        mealList.clear()
+
+                        for (i in 0 until categoryMeals!!.length()) {
+                            val mealObj = categoryMeals!!.getJSONObject(i)
+                            val id = mealObj.getString("idMeal")
+
+                            if (regionMealIds.contains(id)) {
+                                val meal = Meal(
+                                    id = id,
+                                    name = mealObj.getString("strMeal"),
+                                    thumbUrl = mealObj.getString("strMealThumb"),
+                                    region = selectedRegion,
+                                    category = selectedCategory
+                                )
+                                mealList.add(meal)
+                            }
+                        }
+
+                        if (mealList.isEmpty()) {
+                            Toast.makeText(this@MainActivity, "No meals found matching both filters 😢", Toast.LENGTH_LONG).show()
+                        }
+
+                        mealAdapter.notifyDataSetChanged()
+                    }
+
+                    override fun onFailure(statusCode: Int, headers: Headers?, errorResponse: String, throwable: Throwable?) {
+                        Log.e("CATEGORY FAIL", "Error: $errorResponse")
+                    }
+                }]
             }
 
-            override fun onFailure(
-                statusCode: Int,
-                headers: Headers?,
-                errorResponse: String,
-                throwable: Throwable?
-            ) {
-                Log.d("Dog Error", errorResponse)
+            override fun onFailure(statusCode: Int, headers: Headers?, errorResponse: String, throwable: Throwable?) {
+                Log.e("REGION FAIL", "Error: $errorResponse")
             }
         }]
     }
+
+
 }
