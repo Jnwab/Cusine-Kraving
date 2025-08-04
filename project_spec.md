@@ -1,7 +1,4 @@
----
-title: project_spec
 
----
 
 # **CUISINE CRAVINGS**
 
@@ -80,7 +77,8 @@ Required Feature:
 
 ### [BONUS] Digital Wireframes & Mockups
 
-![image_2025-08-01_145510832](https://hackmd.io/_uploads/HJKaw3qPeg.png)
+<img src="https://i.imgur.com/kVILgoY.png" height=600>
+
 
 
 ### [BONUS] Interactive Prototype
@@ -108,15 +106,17 @@ process, or what you learned this unit!
 - Random dish button 
 - More info button  
 - Link to recipe
-<img src="https://i.imgur.com/02vE891.gif" height=600>
+
+[Watch video demo](https://imgur.com/gallery/joshua-nwabuzor-cuisine-cravings-surprise-button-android-capstone-9s2dpBG)
+
 
 
 
 #### Implemention of:
 - Search feature
 - Country/Category selection
-<img src="https://i.imgur.com/glerN9V.gif" height =600>
 
+[Watch video demo](https://imgur.com/gallery/and101-final-program-gif-EZMCgZP#glerN9V)
 
 
 ## License
