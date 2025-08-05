@@ -101,6 +101,8 @@ process, or what you learned this unit!
 
 ### 2 + Videos/GIFs of Build Process
 
+![Alt Text](https://i.imgur.com/glerN9V.gif)
+
 #### Implementation of: 
 - Back button 
 - Random dish button 
