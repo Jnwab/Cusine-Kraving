@@ -101,7 +101,9 @@ process, or what you learned this unit!
 
 ### 2 + Videos/GIFs of Build Process
 
-<img src="https://i.imgur.com/glerN9V.gif" height=600>
+![Build 1](https://media.discordapp.net/attachments/1379995673113657535/1401508248095297626/CuisineCravings2.gif?ex=6893d385&is=68928205&hm=659ea5e536077687080f4277f27582ff83dfa0022d63298ce890bbd531b91087&=&width=461&height=930)
+
+![Build 2/Up to date](https://i.imgur.com/glerN9V.gif)
 
 #### Implementation of: 
 - Back button 
