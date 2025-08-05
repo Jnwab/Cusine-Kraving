@@ -42,7 +42,7 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 
-[Watch Video](https://youtu.be/iVLSHgOU9qc)
+[![Watch the video](https://img.youtube.com/vi/iVLSHgOU9qc/0.jpg)](https://www.youtube.com/watch?v=iVLSHgOU9qc)
 
 VIDEO created with **OBS Studio and Davinci Resolve**
 
