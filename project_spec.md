@@ -101,7 +101,7 @@ process, or what you learned this unit!
 
 ### 2 + Videos/GIFs of Build Process
 
-![Alt Text](https://i.imgur.com/glerN9V.gif)
+<img src="https://i.imgur.com/glerN9V.gif" height=600>
 
 #### Implementation of: 
 - Back button 
