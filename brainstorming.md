@@ -1,8 +1,3 @@
----
-title: Untitled
-
----
-
 # Brainstorming Session
 
 
@@ -17,7 +12,7 @@ title: Untitled
 ## **Jeannette:**
 
 Idea 1: Cuisine Cravings
-- New food reccomendations based on region
+- New food recommendations based on region
 - Filter based on ingredients?
 
 Idea 2: Art OC Generator
@@ -41,9 +36,9 @@ Idea 3: Note tracker - app that listens to either a song and gives a list of cho
 
 Idea 1: Synonym Buddy - gives you synonyms of commonly used words to help writers use unique words
 
-Idea 2 - healthcare - helps maintain a healthy lifestyle by tracking daily eating, exercise, and other lifestyle habits 
+Idea 2: healthcare - helps maintain a healthy lifestyle by tracking daily eating, exercise, and other lifestyle habits 
 
-Idea 3 - virtual dress try on - upload your picture and the app generates pictures of different clothes on you. Lets you choose your personal style without having to wear the clothes 
+Idea 3: virtual dress try on - upload your picture and the app generates pictures of different clothes on you. Lets you choose your personal style without having to wear the clothes 
 
 
 # Top 3 New App Ideas
