@@ -111,7 +111,7 @@ process, or what you learned this unit!
 - More info button  
 - Link to recipe
 
-[Watch video demo](https://imgur.com/gallery/joshua-nwabuzor-cuisine-cravings-surprise-button-android-capstone-9s2dpBG)
+[Watch video demo](https://imgur.com/a/joshua-nwabuzor-cuisine-cravings-surprise-button-android-capstone-9s2dpBG)
 
 
 
