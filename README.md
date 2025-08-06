@@ -3,7 +3,7 @@
 # AND101 Milestone 2 - **Cuisine Cravings**
 
 Submitted by:
-- **Jeanette Ruiz**
+- **Jeannette Ruiz**
 - **Keerthi Sreeram**
 - **Joshua Nwabuzor**
 - **Angel Rivera**
